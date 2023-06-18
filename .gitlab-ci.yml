@@ -1,0 +1,16 @@
+variables:
+  PROJECT: "verify-service"
+  CI_REGISTRY: "registry.ftech.ai"
+  CI_REGISTRY_IMAGE: "registry.ftech.ai/blockchain/sui-network/verify-service"
+
+include:
+  - local: '/ci-template/build-template.yml'
+  - local: '/ci-template/devsecops-template.yml'
+
+stages:
+  - build-dev
+  - build-prod
+  - detect-secrets
+  - dependency-check
+  - upload-bom
+  - sonarqube-check
